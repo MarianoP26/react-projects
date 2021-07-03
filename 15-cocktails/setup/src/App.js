@@ -7,10 +7,28 @@ import SingleCocktail from './pages/SingleCocktail'
 import Error from './pages/Error'
 // import components
 import Navbar from './components/Navbar'
+
 function App() {
+  
   return (
     <div>
-      <h2>app component</h2>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route path="/about">
+            <About/>
+          </Route>
+          <Route path="/cocktail/:id">
+            <SingleCocktail/>
+          </Route>
+          <Route path="*">
+            <Error/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }
